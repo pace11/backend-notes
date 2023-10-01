@@ -15,6 +15,20 @@ class NotesController extends ResponseController
      *
      * @return \Illuminate\Http\Response
      */
+
+    /**
+     * @OA\Get(
+     * path="/api/notes",
+     * tags={"Notes"},
+     * summary="Get Notes",
+     * description="Display all data notes",
+     *      @OA\Response(
+     *          response=200,
+     *          description="Fetch notes success",
+     *          @OA\JsonContent()
+     *      )
+     * )
+     */
     public function index(Request $request) {
         $notes = Notes::orderBy('updated_at', 'desc')->get();
         
