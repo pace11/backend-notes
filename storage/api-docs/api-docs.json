@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "API Documentations Notes",
+        "title": "Your super  ApplicationAPI",
         "version": "1.0.0"
     },
     "paths": {
@@ -33,23 +33,6 @@
                 "operationId": "a56780182e2924912f3664ae75a288ea",
                 "requestBody": {
                     "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "required": [
-                                    "title",
-                                    "description"
-                                ],
-                                "properties": {
-                                    "title": {
-                                        "type": "text"
-                                    },
-                                    "description": {
-                                        "type": "text"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        },
                         "application/json": {
                             "schema": {}
                         }
@@ -139,23 +122,6 @@
                 ],
                 "requestBody": {
                     "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "required": [
-                                    "title",
-                                    "description"
-                                ],
-                                "properties": {
-                                    "title": {
-                                        "type": "text"
-                                    },
-                                    "description": {
-                                        "type": "text"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        },
                         "application/json": {
                             "schema": {}
                         }
