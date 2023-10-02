@@ -89,7 +89,26 @@ class NotesController extends ResponseController
      * summary="Create new note",
      * description="Insert new note data",
      *  @OA\RequestBody(
-     *      @OA\JsonContent()
+     *      @OA\MediaType(
+     *          mediaType="application/json",
+     *             @OA\Schema(
+     *                 @OA\Property(
+     *                      type="object",
+     *                      @OA\Property(
+     *                          property="title",
+     *                          type="string"
+     *                      ),
+     *                      @OA\Property(
+     *                          property="description",
+     *                          type="string"
+     *                      )
+     *                 ),
+     *                 example={
+     *                     "title":"example title",
+     *                     "description":"example description"
+     *                }
+     *          )
+     *      )
      *  ),
      *      @OA\Response(
      *          response=201,
@@ -142,6 +161,28 @@ class NotesController extends ResponseController
      *          type="string",
      *          format="uuid"
      *      ),
+     *  ),
+     *  @OA\RequestBody(
+     *      @OA\MediaType(
+     *          mediaType="application/json",
+     *             @OA\Schema(
+     *                 @OA\Property(
+     *                      type="object",
+     *                      @OA\Property(
+     *                          property="title",
+     *                          type="string"
+     *                      ),
+     *                      @OA\Property(
+     *                          property="description",
+     *                          type="string"
+     *                      )
+     *                 ),
+     *                 example={
+     *                     "title":"example title",
+     *                     "description":"example description"
+     *                }
+     *          )
+     *      )
      *  ),
      *  @OA\RequestBody(
      *      @OA\JsonContent()

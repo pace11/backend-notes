@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Your super  ApplicationAPI",
+        "title": "API Notes Documentations",
         "version": "1.0.0"
     },
     "paths": {
@@ -34,7 +34,26 @@
                 "requestBody": {
                     "content": {
                         "application/json": {
-                            "schema": {}
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "title": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "title": "example title",
+                                    "description": "example description"
+                                }
+                            }
                         }
                     }
                 },
@@ -123,7 +142,26 @@
                 "requestBody": {
                     "content": {
                         "application/json": {
-                            "schema": {}
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "title": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "title": "example title",
+                                    "description": "example description"
+                                }
+                            }
                         }
                     }
                 },
