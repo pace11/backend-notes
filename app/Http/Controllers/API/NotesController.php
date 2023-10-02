@@ -89,16 +89,7 @@ class NotesController extends ResponseController
      * summary="Create new note",
      * description="Insert new note data",
      *  @OA\RequestBody(
-     *      @OA\JsonContent(),
-     *          @OA\MediaType(
-     *              mediaType="multipart/form-data",
-     *              @OA\Schema(
-     *                  type="object",
-     *                  required={"title","description"},
-     *                  @OA\Property(property="title", type="text"),
-     *                  @OA\Property(property="description", type="text")
-     *              ),
-     *          ),
+     *      @OA\JsonContent()
      *  ),
      *      @OA\Response(
      *          response=201,
@@ -153,16 +144,7 @@ class NotesController extends ResponseController
      *      ),
      *  ),
      *  @OA\RequestBody(
-     *      @OA\JsonContent(),
-     *          @OA\MediaType(
-     *              mediaType="multipart/form-data",
-     *              @OA\Schema(
-     *                  type="object",
-     *                  required={"title","description"},
-     *                  @OA\Property(property="title", type="text"),
-     *                  @OA\Property(property="description", type="text")
-     *              ),
-     *          ),
+     *      @OA\JsonContent()
      *  ),
      *      @OA\Response(
      *          response=200,
