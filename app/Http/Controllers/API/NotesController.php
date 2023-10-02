@@ -15,12 +15,10 @@ class NotesController extends ResponseController
      *
      * @return \Illuminate\Http\Response
      * 
-     * api docs
-     * 
      * @OA\Get(
      * path="/api/notes",
      * tags={"Notes"},
-     * summary="Get Notes",
+     * summary="Get notes",
      * description="Display all data notes",
      *      @OA\Response(
      *          response=200,
@@ -40,6 +38,34 @@ class NotesController extends ResponseController
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     * 
+     * @OA\Get(
+     * path="/api/notes/{note_id}",
+     * tags={"Notes"},
+     * summary="Get note by ID",
+     * description="Display specific note by ID",
+     *  @OA\Parameter(
+     *      description="ID of notes",
+     *      in="path",
+     *      name="note_id",
+     *      required=true,
+     *      example="da9081e0-b20b-4228-a605-4afa34b8e963",
+     *      @OA\Schema(
+     *          type="string",
+     *          format="uuid"
+     *      ),
+     *  ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Fetch notes success",
+     *          @OA\JsonContent()
+     *      ),
+     *      @OA\Response(
+     *          response=404,
+     *          description="Not Found",
+     *          @OA\JsonContent()
+     *      )
+     * )
      */
     public function showById($id) {
         $notes = Notes::where('id', $id)->first();
@@ -56,6 +82,35 @@ class NotesController extends ResponseController
      *
      * @param  request  $request
      * @return \Illuminate\Http\Response
+     * 
+     * @OA\Post(
+     * path="/api/notes",
+     * tags={"Notes"},
+     * summary="Create new note",
+     * description="Insert new note data",
+     *  @OA\RequestBody(
+     *      @OA\JsonContent(),
+     *          @OA\MediaType(
+     *              mediaType="multipart/form-data",
+     *              @OA\Schema(
+     *                  type="object",
+     *                  required={"title","description"},
+     *                  @OA\Property(property="title", type="text"),
+     *                  @OA\Property(property="description", type="text")
+     *              ),
+     *          ),
+     *  ),
+     *      @OA\Response(
+     *          response=201,
+     *          description="Submit notes success",
+     *          @OA\JsonContent()
+     *      ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Error validation",
+     *          @OA\JsonContent()
+     *      )
+     * )
      */
     public function create(Request $request) {
         $validator = Validator::make($request->all(), [
@@ -80,6 +135,46 @@ class NotesController extends ResponseController
      * @param  request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     * 
+     * @OA\Patch(
+     * path="/api/notes/update/{note_id}",
+     * tags={"Notes"},
+     * summary="Update note by ID",
+     * description="Modified note data by ID",
+     *  @OA\Parameter(
+     *      description="ID of notes",
+     *      in="path",
+     *      name="note_id",
+     *      required=true,
+     *      example="da9081e0-b20b-4228-a605-4afa34b8e963",
+     *      @OA\Schema(
+     *          type="string",
+     *          format="uuid"
+     *      ),
+     *  ),
+     *  @OA\RequestBody(
+     *      @OA\JsonContent(),
+     *          @OA\MediaType(
+     *              mediaType="multipart/form-data",
+     *              @OA\Schema(
+     *                  type="object",
+     *                  required={"title","description"},
+     *                  @OA\Property(property="title", type="text"),
+     *                  @OA\Property(property="description", type="text")
+     *              ),
+     *          ),
+     *  ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Update notes success",
+     *          @OA\JsonContent()
+     *      ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Error validation",
+     *          @OA\JsonContent()
+     *      )
+     * )
      */
     public function updateById(Request $request, $id) {
         $validator = Validator::make($request->all(), [
@@ -118,6 +213,34 @@ class NotesController extends ResponseController
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     * 
+     * @OA\Delete(
+     * path="/api/notes/delete/{note_id}",
+     * tags={"Notes"},
+     * summary="Get note by ID",
+     * description="Display specific note by ID",
+     *  @OA\Parameter(
+     *      description="ID of notes",
+     *      in="path",
+     *      name="note_id",
+     *      required=true,
+     *      example="da9081e0-b20b-4228-a605-4afa34b8e963",
+     *      @OA\Schema(
+     *          type="string",
+     *          format="uuid"
+     *      ),
+     *  ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Delete notes success",
+     *          @OA\JsonContent()
+     *      ),
+     *      @OA\Response(
+     *          response=404,
+     *          description="Not Found",
+     *          @OA\JsonContent()
+     *      )
+     * )
      */
     public function deleteById($id) {
         $notes = Notes::whereId($id)->delete();

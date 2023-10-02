@@ -15,7 +15,7 @@ use App\Http\Controllers\API\NotesController;
 |
 */
 
-// Notes w/o auth
+// Notes
 Route::get('notes', [NotesController::class, 'index']);
 Route::get('notes/{id}', [NotesController::class, 'showById']);
 Route::post('notes', [NotesController::class, 'create']);
