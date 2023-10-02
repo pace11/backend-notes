@@ -24,14 +24,13 @@ class NotesController extends ResponseController
      *          response=200,
      *          description="Fetch notes success",
      *          @OA\JsonContent(
-     *              @OA\Schema(
-     *                  @OA\Property(
-     *                      type="object",
-     *                      @OA\Property(property="success", type="boolean"),
-     *                      @OA\Property(property="data", type="array"),
-     *                      @OA\Property(property="message", type="string")
-     *                  )
-     *              )
+     *              @OA\Property(property="success", type="boolean"),
+     *              @OA\Property(
+     *                  property="data", 
+     *                  type="array",
+     *                  @OA\Items()
+     *              ),
+     *              @OA\Property(property="message", type="string")
      *          )
      *      )
      * )
