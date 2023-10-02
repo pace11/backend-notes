@@ -14,9 +14,9 @@ class NotesController extends ResponseController
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
-
-    /**
+     * 
+     * api docs
+     * 
      * @OA\Get(
      * path="/api/notes",
      * tags={"Notes"},
