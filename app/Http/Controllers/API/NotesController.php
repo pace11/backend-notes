@@ -28,7 +28,14 @@ class NotesController extends ResponseController
      *              @OA\Property(
      *                  property="data", 
      *                  type="array",
-     *                  @OA\Items()
+     *                  @OA\Items(
+     *                      @OA\Property(property="id", type="string"),
+     *                      @OA\Property(property="title", type="string"),
+     *                      @OA\Property(property="description", type="string"),
+     *                      @OA\Property(property="deleted_at", type="string"),
+     *                      @OA\Property(property="created_at", type="string"),
+     *                      @OA\Property(property="updated_at", type="string")
+     *                  )
      *              ),
      *              @OA\Property(property="message", type="string")
      *          )
@@ -66,12 +73,27 @@ class NotesController extends ResponseController
      *      @OA\Response(
      *          response=200,
      *          description="Fetch notes success",
-     *          @OA\JsonContent()
+     *          @OA\JsonContent(
+     *              @OA\Property(property="success", type="boolean"),
+     *              @OA\Property(
+     *                  property="data",
+     *                  @OA\Property(property="id", type="string"),
+     *                  @OA\Property(property="title", type="string"),
+     *                  @OA\Property(property="description", type="string"),
+     *                  @OA\Property(property="deleted_at", type="string"),
+     *                  @OA\Property(property="created_at", type="string"),
+     *                  @OA\Property(property="updated_at", type="string")
+     *              ),
+     *              @OA\Property(property="message", type="string")
+     *          )
      *      ),
      *      @OA\Response(
      *          response=404,
      *          description="Not Found",
-     *          @OA\JsonContent()
+     *          @OA\JsonContent(
+     *              @OA\Property(property="success", type="boolean", default="false"),
+     *              @OA\Property(property="message", type="string", default="Not Found")
+     *          )
      *      )
      * )
      */
@@ -121,12 +143,33 @@ class NotesController extends ResponseController
      *      @OA\Response(
      *          response=201,
      *          description="Submit notes success",
-     *          @OA\JsonContent()
+     *          @OA\JsonContent(
+     *              @OA\Property(property="success", type="boolean"),
+     *              @OA\Property(
+     *                  property="data",
+     *                  @OA\Property(property="id", type="string"),
+     *                  @OA\Property(property="title", type="string"),
+     *                  @OA\Property(property="description", type="string"),
+     *                  @OA\Property(property="deleted_at", type="string"),
+     *                  @OA\Property(property="created_at", type="string"),
+     *                  @OA\Property(property="updated_at", type="string")
+     *              ),
+     *              @OA\Property(property="message", type="string")
+     *          )
      *      ),
      *      @OA\Response(
      *          response=400,
-     *          description="Error validation",
-     *          @OA\JsonContent()
+     *          description="Error Validation",
+     *          @OA\JsonContent(
+     *              @OA\Property(property="success", type="boolean", default="false"),
+     *              @OA\Property(property="message", type="string", default="Error validation"),
+     *              @OA\Property(
+     *                  property="data", 
+     *                  type="object",
+     *                  @OA\Property(property="title", type="array", @OA\Items()),
+     *                  @OA\Property(property="description", type="array", @OA\Items())
+     *              )
+     *          )
      *      )
      * )
      */
@@ -192,18 +235,36 @@ class NotesController extends ResponseController
      *          )
      *      )
      *  ),
-     *  @OA\RequestBody(
-     *      @OA\JsonContent()
-     *  ),
      *      @OA\Response(
      *          response=200,
      *          description="Update notes success",
-     *          @OA\JsonContent()
+     *          @OA\JsonContent(
+     *              @OA\Property(property="success", type="boolean"),
+     *              @OA\Property(
+     *                  property="data",
+     *                  @OA\Property(property="id", type="string"),
+     *                  @OA\Property(property="title", type="string"),
+     *                  @OA\Property(property="description", type="string"),
+     *                  @OA\Property(property="deleted_at", type="string"),
+     *                  @OA\Property(property="created_at", type="string"),
+     *                  @OA\Property(property="updated_at", type="string")
+     *              ),
+     *              @OA\Property(property="message", type="string")
+     *          )
      *      ),
      *      @OA\Response(
      *          response=400,
-     *          description="Error validation",
-     *          @OA\JsonContent()
+     *          description="Error Validation",
+     *          @OA\JsonContent(
+     *              @OA\Property(property="success", type="boolean", default="false"),
+     *              @OA\Property(property="message", type="string", default="Error validation"),
+     *              @OA\Property(
+     *                  property="data", 
+     *                  type="object",
+     *                  @OA\Property(property="title", type="array", @OA\Items()),
+     *                  @OA\Property(property="description", type="array", @OA\Items())
+     *              )
+     *          )
      *      )
      * )
      */
@@ -264,12 +325,18 @@ class NotesController extends ResponseController
      *      @OA\Response(
      *          response=200,
      *          description="Delete notes success",
-     *          @OA\JsonContent()
+     *          @OA\JsonContent(
+     *              @OA\Property(property="success", type="boolean"),
+     *              @OA\Property(property="message", type="string")
+     *          )
      *      ),
      *      @OA\Response(
      *          response=404,
      *          description="Not Found",
-     *          @OA\JsonContent()
+     *          @OA\JsonContent(
+     *              @OA\Property(property="success", type="boolean", default="false"),
+     *              @OA\Property(property="message", type="string", default="Not Found")
+     *          )
      *      )
      * )
      */

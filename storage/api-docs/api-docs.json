@@ -25,7 +25,29 @@
                                         },
                                         "data": {
                                             "type": "array",
-                                            "items": {}
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string"
+                                                    },
+                                                    "title": {
+                                                        "type": "string"
+                                                    },
+                                                    "description": {
+                                                        "type": "string"
+                                                    },
+                                                    "deleted_at": {
+                                                        "type": "string"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
                                         },
                                         "message": {
                                             "type": "string"
@@ -76,15 +98,73 @@
                         "description": "Submit notes success",
                         "content": {
                             "application/json": {
-                                "schema": {}
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "type": "string"
+                                                },
+                                                "description": {
+                                                    "type": "string"
+                                                },
+                                                "deleted_at": {
+                                                    "type": "string"
+                                                },
+                                                "created_at": {
+                                                    "type": "string"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
                             }
                         }
                     },
                     "400": {
-                        "description": "Error validation",
+                        "description": "Error Validation",
                         "content": {
                             "application/json": {
-                                "schema": {}
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Error validation"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "title": {
+                                                    "type": "array",
+                                                    "items": {}
+                                                },
+                                                "description": {
+                                                    "type": "array",
+                                                    "items": {}
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
                             }
                         }
                     }
@@ -117,7 +197,40 @@
                         "description": "Fetch notes success",
                         "content": {
                             "application/json": {
-                                "schema": {}
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "type": "string"
+                                                },
+                                                "description": {
+                                                    "type": "string"
+                                                },
+                                                "deleted_at": {
+                                                    "type": "string"
+                                                },
+                                                "created_at": {
+                                                    "type": "string"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
                             }
                         }
                     },
@@ -125,7 +238,19 @@
                         "description": "Not Found",
                         "content": {
                             "application/json": {
-                                "schema": {}
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Not Found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
                             }
                         }
                     }
@@ -184,15 +309,73 @@
                         "description": "Update notes success",
                         "content": {
                             "application/json": {
-                                "schema": {}
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "type": "string"
+                                                },
+                                                "description": {
+                                                    "type": "string"
+                                                },
+                                                "deleted_at": {
+                                                    "type": "string"
+                                                },
+                                                "created_at": {
+                                                    "type": "string"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
                             }
                         }
                     },
                     "400": {
-                        "description": "Error validation",
+                        "description": "Error Validation",
                         "content": {
                             "application/json": {
-                                "schema": {}
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Error validation"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "title": {
+                                                    "type": "array",
+                                                    "items": {}
+                                                },
+                                                "description": {
+                                                    "type": "array",
+                                                    "items": {}
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
                             }
                         }
                     }
@@ -225,7 +408,17 @@
                         "description": "Delete notes success",
                         "content": {
                             "application/json": {
-                                "schema": {}
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
                             }
                         }
                     },
@@ -233,7 +426,19 @@
                         "description": "Not Found",
                         "content": {
                             "application/json": {
-                                "schema": {}
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Not Found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
                             }
                         }
                     }
